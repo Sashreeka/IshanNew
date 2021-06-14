@@ -4,7 +4,7 @@
   "description": "backend for web app and mobile app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js"
   },
   "author": "Reshmika Ediriweera",
   "license": "ISC",
