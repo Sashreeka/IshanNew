@@ -11,7 +11,8 @@ const signUpTemplate=new mongoose.Schema({
     },
     email:{
         type:String,
-        required:true
+        required:true,
+        unique:true
     },
     password:{
         type:String,
@@ -23,4 +24,4 @@ const signUpTemplate=new mongoose.Schema({
     }
 })
 
-module.exports=mongoose.model('mytable',signUpTemplate);
+module.exports=mongoose.model('data',signUpTemplate);

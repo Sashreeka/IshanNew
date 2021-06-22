@@ -1,15 +1,41 @@
-const express=require('express')
-const app=express()
-const mongoose=require('mongoose')
-const dotenv=require('dotenv')
-const routeUrls=require('./routes/routes')
-const cors=require('cors')
+const express=require('express');
+const mongoose=require('mongoose');
+const bodyParser=require('body-parser');
+//convert javascript object to json object
 
-dotenv.config()
+////cors import= servers kihipayak tiyenwa ne
+const cors=require('cors');
 
 
-mongoose.connect(process.env.DATABASE_ACCESS,()=>console.log("Database connected"))
-app.use(express.json)
-app.use(cors())
-app.use('/app',routeUrls)
-app.listen(4000,()=> console.log('server is up and running'))
+
+const app=express();
+
+//import routes
+const postRoutes=require('./routes/routes');
+
+//app middleware
+app.use(bodyParser.json());
+
+app.use(cors());
+
+//route middleware
+app.use(postRoutes);
+
+
+const PORT=8000;
+const DB_URL='mongodb+srv://ishan97:19970330@cluster0.dbi3m.mongodb.net/student_db?retryWrites=true&w=majority';
+
+//create database connection
+mongoose.connect(DB_URL,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}).then(()=>{
+    console.log('Database connection successfull');
+}).catch((err)=>{
+    console.log('Database connection error');
+})
+
+app.listen(PORT,()=>{
+    console.log('App is running on '+PORT);
+}
+);
