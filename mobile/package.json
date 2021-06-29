@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "ex-react-native-i18n": "0.0.6",
     "expo": "~41.0.1",
     "expo-constants": "~10.1.3",
