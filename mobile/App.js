@@ -7,6 +7,7 @@ import axios from 'axios';
 import Login from './components/sampleUI/Login';
 
 import LocalMulti from './components/sampleUI/LocalMulti';
+import { MyReactNativeForm } from './components/sampleUI/MyReactNativeForm';
 
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
       
         <Login/>
         <LocalMulti/>
+        <MyReactNativeForm/>
    
       
     </View>
