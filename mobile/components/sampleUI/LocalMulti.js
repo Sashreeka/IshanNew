@@ -1,5 +1,7 @@
 //LocalMulti
 
+//yarn add i18n-js   localization
+//{ "code": "ta", "name": "Tamil" },{ "code": "en", "name": "English" }, { "code": "si", "name": "Sinhala; Sinhalese" },
 import * as React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import * as Localization from 'expo-localization';
