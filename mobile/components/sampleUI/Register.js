@@ -8,6 +8,7 @@ import {
     TouchableWithoutFeedback,
     Keyboard
 } from 'react-native';
+import FlatButton from './FlatButton';
 
 import { Formik } from 'formik';
 import * as yup from 'yup';
@@ -77,9 +78,10 @@ export default function Register()
             />
             <Text style={styles.errorText}>{props.touched.email && props.errors.email}</Text>
 
-            <Button title="යවන්න"
+                <FlatButton   text="යවන්න"  onPress={props.handleSubmit}/>
+            {/* <Button title="යවන්න"
                 onPress={props.handleSubmit}
-            />
+            /> */}
 
             </View>
             </TouchableWithoutFeedback>
