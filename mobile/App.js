@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import React,{useState,useEffect} from 'react';
 import { StyleSheet, 
         Text, 
@@ -7,46 +6,28 @@ import { StyleSheet,
         Image,
         TouchableOpacity,
         Alert,
-        Modal,
-        Button 
+        Modal 
       } from 'react-native';
-import axios from 'axios';
+
 import Login from './components/sampleUI/Login';
 
-import { MyReactNativeForm } from './components/sampleUI/MyReactNativeForm';
+import  MyReactNativeForm from './components/sampleUI/MyReactNativeForm';
 
 
 
 
 export default function App() {
 
-  const [modalOpen,setModal]=useState(false);
-
-
   return (
 
   
     <View style={styles.container}>
-    <Modal visible={modalOpen} animationType='slide'>
-      <Text>Hi Ishan, what happend here.</Text>
-      <Button 
-    title="press"
-    onPress={()=>setModal(false)}/>
-      
-    </Modal>
-
-    <Button 
-    title="press"
-    onPress={()=>setModal(true)}/>
     
-
-
-    <Text>Hello ishan,</Text>
-      
-      
-        
-       
-      
+      {/* <Text>Hi Ishan, what happend here.</Text>
+      <Login/> */}
+  
+      <MyReactNativeForm/>
+  
     </View>
   );
 }
