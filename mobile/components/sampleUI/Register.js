@@ -4,7 +4,9 @@ import {
     Text,
     View,
     Button,
-    TextInput
+    TextInput,
+    TouchableWithoutFeedback,
+    Keyboard
 } from 'react-native';
 
 import { Formik } from 'formik';
@@ -14,13 +16,17 @@ export default function Register()
     return(
         <Formik
         initialValues={{fullname:'',telephonne:'',email:''}}
-        onSubmit={(values)=>{
+        onSubmit={(values,actions)=>{
             console.log(values);
+            //after value submitting, then key board is clear
+            actions.resetForm();
 
         }}
         >
 
         {(props)=>(
+
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View>
                 <TextInput
                 style={styles.input}
@@ -51,6 +57,7 @@ export default function Register()
             />
 
             </View>
+            </TouchableWithoutFeedback>
         )}
 
         </Formik>
