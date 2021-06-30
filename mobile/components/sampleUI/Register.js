@@ -10,11 +10,28 @@ import {
 } from 'react-native';
 
 import { Formik } from 'formik';
+import * as yup from 'yup';
+
+const reviewSchema=yup.object({
+    fullname: yup.string()
+    .required()
+    .min(4),
+    telephonne: yup.string()
+    .required()
+    .min(8),
+    email: yup.string()
+    .required()
+    .test('is-num-1-5','Rating must be a number 1-5',(val)=>{
+        return parseInt(val)<6 && parseInt(val)>0 ;    })
+
+})
+
 
 export default function Register()
 {
     return(
         <Formik
+        validationSchema={reviewSchema}
         initialValues={{fullname:'',telephonne:'',email:''}}
         onSubmit={(values,actions)=>{
             console.log(values);
