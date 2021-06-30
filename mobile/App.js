@@ -12,6 +12,7 @@ import { StyleSheet,
 import Login from './components/sampleUI/Login';
 
 import  MyReactNativeForm from './components/sampleUI/MyReactNativeForm';
+import Register from './components/sampleUI/Register';
 
 
 
@@ -26,7 +27,8 @@ export default function App() {
       {/* <Text>Hi Ishan, what happend here.</Text>
       <Login/> */}
   
-      <MyReactNativeForm/>
+      {/* <MyReactNativeForm/> */}
+      <Register/>
   
     </View>
   );
