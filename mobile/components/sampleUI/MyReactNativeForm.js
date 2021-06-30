@@ -4,6 +4,7 @@
  import { Formik } from 'formik';
  
  export const MyReactNativeForm = props => (
+    
    <Formik
      initialValues={{ email: '' }}
      onSubmit={values => console.log(values)}
