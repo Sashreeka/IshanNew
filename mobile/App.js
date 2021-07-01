@@ -14,41 +14,11 @@ import { StyleSheet,
       } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Header from './components/sampleUI/Header';
+import HomeScreen from './components/screen/HomeScreen';
+import DetailsScreen from './components/screen/DetailsScreen';
 const Stack = createStackNavigator();
 
-const HomeScreen = ({navigation})=>{
-  return(
-    <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
-      <Text>Home Screen</Text>
-      <Button title="go to details Screen"
-        onPress={()=>
-          navigation.navigate("Details")
-        }
-      />
-    </View>
-  );
-}
-const DetailsScreen = ({navigation})=>{
-  return(
-    <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
-      <Text>Details Screen</Text>
-      <Button
-        title="Go to details screen...again"
-        onPress={()=>navigation.push("Details")}
-      />
 
-    <Button
-        title="Go to Home"
-        onPress={()=>navigation.navigate("Header")}
-      />
-
-  <Button
-        title="Go back"
-        onPress={()=>navigation.goBack()}
-      />
-    </View>
-  );
-}
 
 
 export default function App() {
@@ -73,14 +43,15 @@ export default function App() {
           
         />
         <Stack.Screen name="Details" component={DetailsScreen}
-        options={{
-          headerStyle:{
-            backgroundColor:'#000'
-          }
-        }}
+       
          
         />
-        <Stack.Screen name="Header" component={Header}/>
+        <Stack.Screen name="Header" component={Header}
+           options={{
+         title:"Overview"
+          
+        }}
+        />
       </Stack.Navigator>
      
 
