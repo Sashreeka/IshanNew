@@ -22,8 +22,8 @@ import { StyleSheet,
         />
   
       <Button
-          title="Go to Header"
-          onPress={()=>navigation.navigate("Header")}
+          title="Go to Home"
+          onPress={()=>navigation.navigate("Home")}
         />
   
     <Button

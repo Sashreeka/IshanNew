@@ -13,46 +13,77 @@ import { StyleSheet,
         Button 
       } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import Header from './components/sampleUI/Header';
 import HomeScreen from './components/screen/HomeScreen';
 import DetailsScreen from './components/screen/DetailsScreen';
-const Stack = createStackNavigator();
+const HomeStack = createStackNavigator();
+const DetailsStack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 
+const HomeStackScreen= ({navigation})=>(
+
+  <HomeStack.Navigator screenOptions={{
+    headerStyle:{
+          backgroundColor:'#009387',
+          
+          
+         
+        },
+        headerTitleAlign:'center',
+        headerTintColor:'#fff',
+        headerTitleStyle:{
+          fontWeight:'bold'
+        }
+
+  }}>
+    <HomeStack.Screen name="Home" component={HomeScreen} 
+      
+    />
+   
+  </HomeStack.Navigator>
+
+
+)
+
+
+const DetailsStackScreen= ({navigation})=>(
+
+  <DetailsStack.Navigator screenOptions={{
+    headerStyle:{
+          backgroundColor:'#009387',
+          
+          
+         
+        },
+        headerTitleAlign:'center',
+        headerTintColor:'#fff',
+        headerTitleStyle:{
+          fontWeight:'bold'
+        }
+
+  }}>
+    <DetailsStack.Screen name="Details" component={DetailsScreen} 
+      
+    />
+   
+  </DetailsStack.Navigator>
+
+
+)
 
 
 export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{
-        headerStyle:{
-              backgroundColor:'#009387',
-              
-              
-             
-            },
-            headerTitleAlign:'center',
-            headerTintColor:'#fff',
-            headerTitleStyle:{
-              fontWeight:'bold'
-            }
 
-      }}>
-        <Stack.Screen name="Home" component={HomeScreen} 
-          
-        />
-        <Stack.Screen name="Details" component={DetailsScreen}
-       
-         
-        />
-        <Stack.Screen name="Header" component={Header}
-           options={{
-         title:"Overview"
-          
-        }}
-        />
-      </Stack.Navigator>
+    <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={HomeStackScreen} />
+        <Drawer.Screen name="Details" component={DetailsStackScreen} />
+    </Drawer.Navigator>
+
      
 
     </NavigationContainer>

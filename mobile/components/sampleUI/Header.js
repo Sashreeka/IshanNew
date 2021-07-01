@@ -5,7 +5,7 @@ import {
     StyleSheet
 } from 'react-native';
 
-function header() {
+function header({navigation}) {
     return (
         <View style={styles.container}>
         <Text style={styles.headerText}>Header</Text>
