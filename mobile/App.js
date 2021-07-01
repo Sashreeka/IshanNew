@@ -55,10 +55,8 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} 
-          options={{
-            headerStyle:{
+      <Stack.Navigator screenOptions={{
+        headerStyle:{
               backgroundColor:'#009387',
               
               
@@ -70,31 +68,17 @@ export default function App() {
               fontWeight:'bold'
             }
 
-           
-            
-
-
-          }}
+      }}>
+        <Stack.Screen name="Home" component={HomeScreen} 
+          
         />
         <Stack.Screen name="Details" component={DetailsScreen}
-          options={{
-            headerStyle:{
-              backgroundColor:'#000',
-              
-              
-             
-            },
-            headerTitleAlign:'center',
-            headerTintColor:'#fff',
-            headerTitleStyle:{
-              fontWeight:'bold'
-            }
-
-           
-            
-
-
-          }}
+        options={{
+          headerStyle:{
+            backgroundColor:'#000'
+          }
+        }}
+         
         />
         <Stack.Screen name="Header" component={Header}/>
       </Stack.Navigator>
