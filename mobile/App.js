@@ -9,15 +9,28 @@ import { StyleSheet,
         Image,
         TouchableOpacity,
         Alert,
-        Modal 
+        Modal,
+        Button 
       } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
-const HomeScreen = ()=>{
+const HomeScreen = ({navigation})=>{
   return(
     <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
-      <Text>HomeScreen</Text>
+      <Text>Home Screen</Text>
+      <Button title="go to details Screen"
+        onPress={()=>
+          navigation.navigate("Details")
+        }
+      />
+    </View>
+  );
+}
+const DetailsScreen = ()=>{
+  return(
+    <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+      <Text>Details Screen</Text>
     </View>
   );
 }
@@ -29,8 +42,9 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Details" component={DetailsScreen}/>
       </Stack.Navigator>
-
+     
 
     </NavigationContainer>
 
