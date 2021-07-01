@@ -1,4 +1,7 @@
 import React,{useState,useEffect} from 'react';
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+
 import { StyleSheet, 
         Text, 
         View, 
@@ -8,32 +11,33 @@ import { StyleSheet,
         Alert,
         Modal 
       } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+const Stack = createStackNavigator();
 
-import Login from './components/sampleUI/Login';
-
-import  MyReactNativeForm from './components/sampleUI/MyReactNativeForm';
-import Register from './components/sampleUI/Register';
-import Header from './components/sampleUI/Header';
-
-
+const HomeScreen = ()=>{
+  return(
+    <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+      <Text>HomeScreen</Text>
+    </View>
+  );
+}
 
 
 export default function App() {
 
   return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+
+
+    </NavigationContainer>
 
   
-    <View style={styles.container}>
 
-    <Header/>
-    
-      {/* <Text>Hi Ishan, what happend here.</Text>
-      <Login/> */}
   
-      {/* <MyReactNativeForm/> */}
-      <Register/>
-  
-    </View>
+
   );
 }
 
