@@ -22,16 +22,30 @@ const HomeScreen = ({navigation})=>{
       <Text>Home Screen</Text>
       <Button title="go to details Screen"
         onPress={()=>
-          navigation.navigate("Header")
+          navigation.navigate("Details")
         }
       />
     </View>
   );
 }
-const DetailsScreen = ()=>{
+const DetailsScreen = ({navigation})=>{
   return(
     <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
       <Text>Details Screen</Text>
+      <Button
+        title="Go to details screen...again"
+        onPress={()=>navigation.push("Details")}
+      />
+
+    <Button
+        title="Go to Home"
+        onPress={()=>navigation.navigate("Header")}
+      />
+
+  <Button
+        title="Go back"
+        onPress={()=>navigation.goBack()}
+      />
     </View>
   );
 }
@@ -43,6 +57,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Details" component={DetailsScreen}/>
         <Stack.Screen name="Header" component={Header}/>
       </Stack.Navigator>
      
