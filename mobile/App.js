@@ -13,6 +13,7 @@ import { StyleSheet,
         Button 
       } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
+import Header from './components/sampleUI/Header';
 const Stack = createStackNavigator();
 
 const HomeScreen = ({navigation})=>{
@@ -21,7 +22,7 @@ const HomeScreen = ({navigation})=>{
       <Text>Home Screen</Text>
       <Button title="go to details Screen"
         onPress={()=>
-          navigation.navigate("Details")
+          navigation.navigate("Header")
         }
       />
     </View>
@@ -42,7 +43,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Details" component={DetailsScreen}/>
+        <Stack.Screen name="Header" component={Header}/>
       </Stack.Navigator>
      
 
