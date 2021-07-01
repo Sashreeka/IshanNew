@@ -31,6 +31,7 @@ const reviewSchema=yup.object({
 export default function Register()
 {
     return(
+        <View style={styles.container}>
         <Formik
         validationSchema={reviewSchema}
         initialValues={{fullname:'',telephone:'',email:''}}
@@ -45,7 +46,7 @@ export default function Register()
         {(props)=>(
 
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-            <View>
+            <View >
                 <TextInput
                 style={styles.input}
                 placeholder="ඔබේ නම ඇතුළත් කරන්න"
@@ -88,10 +89,18 @@ export default function Register()
         )}
 
         </Formik>
+        </View>
     );
 }
 
 const styles=StyleSheet.create({
+    container:{
+        backgroundColor:'#f0fff0',
+        flex:1,
+        alignItems:'center',
+        justifyContent:'center',
+        
+    },
     input:{
         borderWidth:1,
         padding:10,

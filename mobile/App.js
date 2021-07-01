@@ -13,6 +13,7 @@ import Login from './components/sampleUI/Login';
 
 import  MyReactNativeForm from './components/sampleUI/MyReactNativeForm';
 import Register from './components/sampleUI/Register';
+import Header from './components/sampleUI/Header';
 
 
 
@@ -23,6 +24,8 @@ export default function App() {
 
   
     <View style={styles.container}>
+
+    <Header/>
     
       {/* <Text>Hi Ishan, what happend here.</Text>
       <Login/> */}
