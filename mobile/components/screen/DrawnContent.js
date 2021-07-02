@@ -18,12 +18,36 @@ import { StyleSheet,
     TouchableOpacity,
     Switch 
   } from 'react-native-paper';
+  import  Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
   export function DrawerContent(props)
   {
       return(
-          <View>
-              <Text>This is test</Text>
+          <View style={{flex:1}}>
+
+              <DrawerContentScrollView {...props}>
+                    <View>
+                        <Text>Main Content</Text>
+                    </View>
+
+              </DrawerContentScrollView>
+              <Drawer.Section style={styles.bottomDrawerSection}>
+                <DrawerItem
+                    icon={
+                        ({color,size})=>(
+                            <Icon
+                                name="exit-to-app"
+                                color={color}
+                                size={size}
+                            />
+                        )
+                    }
+                    label="Sign Out"
+
+                />
+
+
+              </Drawer.Section>
           </View>
       );
   }
