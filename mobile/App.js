@@ -17,6 +17,7 @@ import { StyleSheet,
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import MainTabScreen from './components/screen/MainTabScreen';
 
+import { DrawerContent } from './components/screen/DrawnContent';
 const Drawer = createDrawerNavigator();
 
 
@@ -26,7 +27,7 @@ export default function App() {
   return (
     <NavigationContainer>
 
-    <Drawer.Navigator initialRouteName="Home">
+    <Drawer.Navigator drawerContent={props => <DrawerContent {...props}/>}>
         <Drawer.Screen name="Home" component={MainTabScreen} />
         {/* <Drawer.Screen name="Details" component={DetailsStackScreen} /> */}
     </Drawer.Navigator>

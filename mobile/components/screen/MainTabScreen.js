@@ -105,7 +105,7 @@ const HomeStackScreen= ({navigation})=>(
   
     <DetailsStack.Navigator screenOptions={{
       headerStyle:{
-            backgroundColor:'#009387',
+            backgroundColor:'#1f65ff',
             
             
            
@@ -121,7 +121,7 @@ const HomeStackScreen= ({navigation})=>(
   
       options={{
         headerLeft: ()=>(
-          <Ionicons name="menu" size={25} backgroundColor='#fff'
+          <Ionicons name="menu" size={25} backgroundColor='#1f65ff'
           onPress={()=>navigation.openDrawer()} />
         )
       }}
