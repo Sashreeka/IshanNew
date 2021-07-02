@@ -15,7 +15,7 @@ const DetailsStack = createStackNavigator();
 const MainTabScreen = ()=>(
     <Tab.Navigator
       initialRouteName="Home"
-      activeColor="#e91e63"
+      activeColor="#fff"
       barStyle={{ backgroundColor: 'tomato' }}
     >
       <Tab.Screen
@@ -23,6 +23,7 @@ const MainTabScreen = ()=>(
         component={HomeStackScreen}
         options={{
           tabBarLabel: 'Home',
+          tabBarColor:'#009387',
           tabBarIcon: ({ color }) => (
             <Ionicons name="home" color={color} size={26} />
           ),
@@ -33,6 +34,7 @@ const MainTabScreen = ()=>(
         component={DetailsStackScreen}
         options={{
           tabBarLabel: 'Details',
+          tabBarColor:'#1f65ff',
           tabBarIcon: ({ color }) => (
             <Ionicons name="notifications" color={color} size={26} />
           ),
@@ -43,6 +45,7 @@ const MainTabScreen = ()=>(
         component={ProfileScreen}
         options={{
           tabBarLabel: 'Profile',
+          tabBarColor:'#694fad',
           tabBarIcon: ({ color }) => (
             <Ionicons name="person" color={color} size={26} />
           ),
@@ -54,6 +57,7 @@ const MainTabScreen = ()=>(
         component={ExploreScreen}
         options={{
           tabBarLabel: 'Explore',
+          tabBarColor:'#d02868',
           tabBarIcon: ({ color }) => (
             <Ionicons name="aperture" color={color} size={26} />
           ),
