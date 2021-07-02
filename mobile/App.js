@@ -43,6 +43,7 @@ const HomeStackScreen= ({navigation})=>(
     options={{
       headerLeft: ()=>(
         <Ionicons name="menu" size={25} backgroundColor='#009387'
+        
         onPress={()=>navigation.openDrawer()} />
       )
     }}
@@ -72,6 +73,13 @@ const DetailsStackScreen= ({navigation})=>(
 
   }}>
     <DetailsStack.Screen name="Details" component={DetailsScreen} 
+
+    options={{
+      headerLeft: ()=>(
+        <Ionicons name="menu" size={25} backgroundColor='#fff'
+        onPress={()=>navigation.openDrawer()} />
+      )
+    }}
       
     />
    
