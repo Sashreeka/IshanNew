@@ -9,6 +9,7 @@ import { StyleSheet,
     Modal,
     Button 
   } from 'react-native';
+  
 
 const HomeScreen = ({navigation})=>{
     return(
@@ -19,6 +20,8 @@ const HomeScreen = ({navigation})=>{
             navigation.navigate("Details")
           }
         />
+             
+
       </View>
     );
   }

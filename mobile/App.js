@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
 
 import { StyleSheet, 
         Text, 
@@ -39,6 +40,12 @@ const HomeStackScreen= ({navigation})=>(
 
   }}>
     <HomeStack.Screen name="Home" component={HomeScreen} 
+    options={{
+      headerLeft: ()=>(
+        <Ionicons name="menu" size={25} backgroundColor='#009387'
+        onPress={()=>navigation.openDrawer()} />
+      )
+    }}
       
     />
    
