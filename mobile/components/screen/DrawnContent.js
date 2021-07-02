@@ -15,19 +15,151 @@ import { StyleSheet,
     Paragraph,
     Drawer,
     Text,
-    TouchableOpacity,
+    TouchableRipple,
     Switch 
   } from 'react-native-paper';
   import  Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
   export function DrawerContent(props)
   {
+      const [isDarkTheme,setDarkTheme]=useState(false);
+
+      const toggleTheme = ()=>{
+          setDarkTheme(!isDarkTheme);
+      }
       return(
           <View style={{flex:1}}>
 
               <DrawerContentScrollView {...props}>
-                    <View>
-                        <Text>Main Content</Text>
+                    <View style={styles.drawerContent}>
+                       <View style={styles.userInfoSection}>
+                            <View style={{flexDirection:'row',marginTop:15}}>
+                                <Avatar.Image
+                                    source={{
+                                        uri:'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+                                    }}
+                                    size={50}
+                                />
+                                <View style={{marginLeft:15,flexDirection:'column'}}>
+                                    <Title style={styles.title}>Ishan Reshmika</Title>
+                                    <Caption style={styles.caption}>Software Engineer</Caption>
+                                </View>
+                            </View>
+                            <View style={styles.row}>
+                                    <View style={styles.section}>
+                                        <Paragraph style={[styles.paragarph,styles.caption]}>100</Paragraph>
+                                        <Caption style={styles.caption}>Following</Caption>
+                                    </View>
+                                    <View style={styles.section}>
+                                        <Paragraph style={[styles.paragarph,styles.caption]}>80</Paragraph>
+                                        <Caption style={styles.caption}>Follower</Caption>
+                                    </View>
+
+                            </View>
+                            
+
+                       </View>
+
+                       <Drawer.Section style={styles.drawerSection}>
+                        <DrawerItem
+                            icon={
+                                ({color,size})=>(
+                                    <Icon
+                                        name="home-outline"
+                                        color={color}
+                                        size={size}
+                                    />
+                                )
+                            }
+                            label="Home"
+                            onPress={()=>{
+
+                            }}
+
+                        />
+
+                        <DrawerItem
+                            icon={
+                                ({color,size})=>(
+                                    <Icon
+                                        name="account-outline"
+                                        color={color}
+                                        size={size}
+                                    />
+                                )
+                            }
+                            label="Profile"
+                            onPress={()=>{
+
+                            }}
+
+                        />
+                        <DrawerItem
+                            icon={
+                                ({color,size})=>(
+                                    <Icon
+                                        name="bookmark-outline"
+                                        color={color}
+                                        size={size}
+                                    />
+                                )
+                            }
+                            label="BookMarks"
+                            onPress={()=>{
+
+                            }}
+
+                        />
+
+                        <DrawerItem
+                            icon={
+                                ({color,size})=>(
+                                    <Icon
+                                        name="account-outline"
+                                        color={color}
+                                        size={size}
+                                    />
+                                )
+                            }
+                            label="Settings"
+                            onPress={()=>{
+
+                            }}
+
+                        />
+
+                        <DrawerItem
+                            icon={
+                                ({color,size})=>(
+                                    <Icon
+                                        name="account-check-outline"
+                                        color={color}
+                                        size={size}
+                                    />
+                                )
+                            }
+                            label="Support"
+                            onPress={()=>{
+
+                            }}
+
+                        />
+
+                             
+                                    
+
+                       </Drawer.Section>
+                       <Drawer.Section title="Preferences">
+                            <TouchableRipple onPress={()=>{toggleTheme()}}>
+                                <View style={styles.preference}>
+                                    <Text>Dark Theme</Text>
+                                    <View pointerEvents="none">
+                                        <Switch value={isDarkTheme}/>
+                                    </View>
+                                </View>
+                            </TouchableRipple>
+
+                       </Drawer.Section>
                     </View>
 
               </DrawerContentScrollView>
@@ -43,6 +175,9 @@ import { StyleSheet,
                         )
                     }
                     label="Sign Out"
+                    onPress={()=>{
+
+                    }}
 
                 />
 
@@ -56,7 +191,7 @@ import { StyleSheet,
       drawerContent:{
           flex:1,
       },
-      userInfoSelection:{
+      userInfoSection:{
 
         paddingLeft:20,
       },
