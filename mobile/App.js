@@ -18,6 +18,9 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import MainTabScreen from './components/screen/MainTabScreen';
 
 import { DrawerContent } from './components/screen/DrawnContent';
+import SupportScreen from './components/screen/SupportScreen';
+import SettingsScreen from './components/screen/SettingsScreen';
+import BookmarkScreen from './components/screen/BookmarkScreen';
 const Drawer = createDrawerNavigator();
 
 
@@ -28,8 +31,10 @@ export default function App() {
     <NavigationContainer>
 
     <Drawer.Navigator drawerContent={props => <DrawerContent {...props}/>}>
-        <Drawer.Screen name="Home" component={MainTabScreen} />
-        {/* <Drawer.Screen name="Details" component={DetailsStackScreen} /> */}
+        <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
+        <Drawer.Screen name="SupportScreen" component={SupportScreen} />
+        <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
+        <Drawer.Screen name="BookmarkScreen" component={BookmarkScreen}/>
     </Drawer.Navigator>
 
      

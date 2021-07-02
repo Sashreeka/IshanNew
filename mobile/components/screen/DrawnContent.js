@@ -73,6 +73,7 @@ import { StyleSheet,
                             }
                             label="Home"
                             onPress={()=>{
+                                props.navigation.navigate('Home')
 
                             }}
 
@@ -90,6 +91,7 @@ import { StyleSheet,
                             }
                             label="Profile"
                             onPress={()=>{
+                                props.navigation.navigate("Profile")
 
                             }}
 
@@ -106,6 +108,7 @@ import { StyleSheet,
                             }
                             label="BookMarks"
                             onPress={()=>{
+                                props.navigation.navigate('BookmarkScreen')
 
                             }}
 
@@ -123,6 +126,7 @@ import { StyleSheet,
                             }
                             label="Settings"
                             onPress={()=>{
+                                props.navigation.navigate('SettingsScreen')
 
                             }}
 
@@ -140,6 +144,7 @@ import { StyleSheet,
                             }
                             label="Support"
                             onPress={()=>{
+                                props.navigation.navigate('SupportScreen')
 
                             }}
 
