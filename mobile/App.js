@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
-import { Ionicons } from '@expo/vector-icons';
+
 
 import { StyleSheet, 
         Text, 
@@ -13,80 +13,12 @@ import { StyleSheet,
         Modal,
         Button 
       } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
+
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import Header from './components/sampleUI/Header';
-import HomeScreen from './components/screen/HomeScreen';
-import DetailsScreen from './components/screen/DetailsScreen';
-const HomeStack = createStackNavigator();
-const DetailsStack = createStackNavigator();
+import MainTabScreen from './components/screen/MainTabScreen';
+
 const Drawer = createDrawerNavigator();
 
-
-const HomeStackScreen= ({navigation})=>(
-
-  <HomeStack.Navigator screenOptions={{
-    headerStyle:{
-          backgroundColor:'#009387',
-          
-          
-         
-        },
-        headerTitleAlign:'center',
-        headerTintColor:'#fff',
-        headerTitleStyle:{
-          fontWeight:'bold'
-        }
-
-  }}>
-    <HomeStack.Screen name="Home" component={HomeScreen} 
-    options={{
-      headerLeft: ()=>(
-        <Ionicons name="menu" size={25} backgroundColor='#009387'
-        
-        onPress={()=>navigation.openDrawer()} />
-      )
-    }}
-      
-    />
-   
-  </HomeStack.Navigator>
-
-
-)
-
-
-const DetailsStackScreen= ({navigation})=>(
-
-  <DetailsStack.Navigator screenOptions={{
-    headerStyle:{
-          backgroundColor:'#009387',
-          
-          
-         
-        },
-        headerTitleAlign:'center',
-        headerTintColor:'#fff',
-        headerTitleStyle:{
-          fontWeight:'bold'
-        }
-
-  }}>
-    <DetailsStack.Screen name="Details" component={DetailsScreen} 
-
-    options={{
-      headerLeft: ()=>(
-        <Ionicons name="menu" size={25} backgroundColor='#fff'
-        onPress={()=>navigation.openDrawer()} />
-      )
-    }}
-      
-    />
-   
-  </DetailsStack.Navigator>
-
-
-)
 
 
 export default function App() {
@@ -95,8 +27,8 @@ export default function App() {
     <NavigationContainer>
 
     <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={HomeStackScreen} />
-        <Drawer.Screen name="Details" component={DetailsStackScreen} />
+        <Drawer.Screen name="Home" component={MainTabScreen} />
+        {/* <Drawer.Screen name="Details" component={DetailsStackScreen} /> */}
     </Drawer.Navigator>
 
      
