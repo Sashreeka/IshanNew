@@ -9,6 +9,7 @@ import { StyleSheet,
     Modal,
     Button,
     Dimensions, 
+    TextInput
   } from 'react-native';
 
   import * as Animatable from 'react-native-animatable';
@@ -23,10 +24,21 @@ export default function SigninScreen() {
     return (
         <View style={styles.container}>
           <View style={styles.header}>
-              <Text>header</Text>
+              <Text style={styles.text_header}>Welcome!</Text>
           </View>
           <View style={styles.footer}>
-              <Text>footer</Text>
+              <Text style={styles.text_footer}>Email</Text>
+              <View style={styles.action}>
+                <FontAwesome
+                  name="user-o"
+                  color="#05375a"
+                  size={20}
+                />
+                <TextInput
+                  placeholder="Your Email"
+                  style={styles.textInput}
+                />
+              </View>
           </View>
             
             
