@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { StyleSheet, 
     Text, 
     View, 
@@ -21,6 +21,36 @@ import { StyleSheet,
   import { Feather } from '@expo/vector-icons';
 
 export default function SigninScreen() {
+
+  const [data,setData]=useState({
+    email:'',
+    password:'',
+    check_textInputChange: false,
+    secureTextEntry: true
+  });
+
+
+  const textInputChange= (val)=>{
+    if(val.length!==0)
+    {
+      setData({
+        ...data,
+        email:val,
+        check_textInputChange:true
+      });
+    }else{
+      setData({
+        ...data,
+        email:val,
+        check_textInputChange:false
+      });
+
+
+    }
+
+
+  }
+
     return (
         <View style={styles.container}>
           <View style={styles.header}>
@@ -37,6 +67,36 @@ export default function SigninScreen() {
                 <TextInput
                   placeholder="Your Email"
                   style={styles.textInput}
+                  autoCapitalize="none"
+                  onChangeText={(val)=>textInputChange(val)}
+                />
+                {data.check_textInputChange ? 
+                <Feather
+                  name="check-circle"
+                  color="green"
+                  size={20}
+                />
+                :null}
+              </View>
+
+
+              <Text style={[styles.text_footer,{marginTop:35}]}>Password</Text>
+              <View style={styles.action}>
+                <FontAwesome
+                  name="lock"
+                  color="#05375a"
+                  size={20}
+                />
+                <TextInput
+                  placeholder="Your Password"
+                  style={styles.textInput}
+                  autoCapitalize="none"
+                  secureTextEntry={true}
+                />
+                <Feather
+                  name="eye-off"
+                  color="grey"
+                  size={20}
                 />
               </View>
           </View>
@@ -92,6 +152,7 @@ const styles = StyleSheet.create({
     flex:1,
     paddingLeft:10,
     color:'#05375a',
+    marginLeft:10,
   },
   button:{
     alignItems:'center',
