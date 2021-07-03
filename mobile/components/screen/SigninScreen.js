@@ -51,6 +51,21 @@ export default function SigninScreen() {
 
   }
 
+  const handlePasswordChange =(val) =>{
+    setData({
+      ...data,
+      password:val
+    });
+  }
+
+
+  const updateSecureTextEntry =(val) =>{
+    setData({
+      ...data,
+      secureTextEntry:!data.secureTextEntry
+    });
+  }
+
     return (
         <View style={styles.container}>
           <View style={styles.header}>
@@ -71,11 +86,14 @@ export default function SigninScreen() {
                   onChangeText={(val)=>textInputChange(val)}
                 />
                 {data.check_textInputChange ? 
+                <Animatable.View
+                animation='bounceIn'>
                 <Feather
                   name="check-circle"
                   color="green"
                   size={20}
                 />
+                </Animatable.View>
                 :null}
               </View>
 
@@ -91,13 +109,28 @@ export default function SigninScreen() {
                   placeholder="Your Password"
                   style={styles.textInput}
                   autoCapitalize="none"
-                  secureTextEntry={true}
+                  secureTextEntry={data.secureTextEntry ?true: false}
+                  onChangeText={(val)=>handlePasswordChange(val)}
                 />
-                <Feather
-                  name="eye-off"
-                  color="grey"
-                  size={20}
-                />
+
+                <TouchableOpacity
+                onPress={updateSecureTextEntry}>
+                {data.secureTextEntry ?
+                  <Feather
+                    name="eye-off"
+                    color="grey"
+                    size={20}
+                  />
+                  :
+
+                  <Feather
+                    name="eye"
+                    color="grey"
+                    size={20}
+                  />
+                }
+                </TouchableOpacity>
+               
               </View>
           </View>
             
