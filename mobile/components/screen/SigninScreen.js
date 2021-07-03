@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
     borderRadius:10,
   },
   textSign:{
-    fontSize:10,
+    fontSize:20,
     fontWeight:'bold',
   }
 

@@ -282,7 +282,7 @@ const styles = StyleSheet.create({
   },
   button:{
     alignItems:'center',
-    marginTop:50,
+    marginTop:30,
   },
   signIn:{
     width:'100%',
@@ -293,7 +293,7 @@ const styles = StyleSheet.create({
    
   },
   textSign:{
-    fontSize:10,
+    fontSize:20,
     fontWeight:'bold',
   }
 
