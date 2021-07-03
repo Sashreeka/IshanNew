@@ -16,5 +16,5 @@ export default function RootStackScreen({navigation}) {
             <RootStack.Screen name="SignupScreen" component={SignupScreen}/>
 
         </RootStack.Navigator>
-    )
+    ); 
 }
