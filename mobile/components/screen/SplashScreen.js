@@ -12,6 +12,8 @@ import { StyleSheet,
     
   } from 'react-native';
 
+  import * as Animatable from 'react-native-animatable';
+
   import { LinearGradient } from 'expo-linear-gradient';
   
   import { MaterialIcons } from '@expo/vector-icons';
@@ -19,7 +21,9 @@ export default function SplashScreen() {
     return (
         <View style={styles.container}>
            <View style={styles.header}>
-           <Image
+           <Animatable.Image
+           animation="bounceIn"
+           duration={2000}
              source={require('../../assets/logo.png')}
              style={styles.logo}
              resizeMode="stretch"
@@ -27,18 +31,26 @@ export default function SplashScreen() {
 
            </View>
 
-           <View style={styles.footer}>
+           <Animatable.View style={styles.footer}>
             <Text style={styles.title}>Stay connected with Shashreeka</Text>
             <Text style={styles.text}>Sign in with account</Text>
+            <View style={styles.button}>
             <TouchableOpacity onPress={alert('click')}>
               <LinearGradient
               colors={['#08d4c4,#01ab9d']}
               style={styles.signIn}>
                 <Text style={styles.textSign}>Get Started</Text>
+                <MaterialIcons
+                  name="navigate-next"
+                  color="#fff"
+                  size={20}
+                />
+
               </LinearGradient>
             </TouchableOpacity>
+            </View>
 
-           </View>
+           </Animatable.View>
             
         </View>
     )
