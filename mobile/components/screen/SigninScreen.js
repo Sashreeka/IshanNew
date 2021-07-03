@@ -9,7 +9,8 @@ import { StyleSheet,
     Modal,
     Button,
     Dimensions, 
-    TextInput
+    TextInput,
+    StatusBar
   } from 'react-native';
 
   import * as Animatable from 'react-native-animatable';
@@ -68,10 +69,13 @@ export default function SigninScreen() {
 
     return (
         <View style={styles.container}>
+          <StatusBar backgroundColor="#009387" barStyle="light-content"/>
           <View style={styles.header}>
               <Text style={styles.text_header}>Welcome!</Text>
           </View>
-          <View style={styles.footer}>
+          <Animatable.View style={styles.footer}
+          animation="fadeInUpBig"
+          >
               <Text style={styles.text_footer}>Email</Text>
               <View style={styles.action}>
                 <FontAwesome
@@ -165,7 +169,7 @@ export default function SigninScreen() {
                     </TouchableOpacity>
 
                 </View>
-          </View>
+          </Animatable.View>
             
             
         </View>
