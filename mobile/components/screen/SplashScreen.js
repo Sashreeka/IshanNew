@@ -8,19 +8,35 @@ import { StyleSheet,
     Alert,
     Modal,
     Button, 
-    Dimensions
+    Dimensions,
+    
   } from 'react-native';
 
+  import { LinearGradient } from 'expo-linear-gradient';
+  
+  import { MaterialIcons } from '@expo/vector-icons';
 export default function SplashScreen() {
     return (
         <View style={styles.container}>
            <View style={styles.header}>
-            <Text>Header</Text>
+           <Image
+             source={require('../../assets/logo.png')}
+             style={styles.logo}
+             resizeMode="stretch"
+           />
 
            </View>
 
            <View style={styles.footer}>
-            <Text>Footer</Text>
+            <Text style={styles.title}>Stay connected with Shashreeka</Text>
+            <Text style={styles.text}>Sign in with account</Text>
+            <TouchableOpacity onPress={alert('click')}>
+              <LinearGradient
+              colors={['#08d4c4,#01ab9d']}
+              style={styles.signIn}>
+                <Text style={styles.textSign}>Get Started</Text>
+              </LinearGradient>
+            </TouchableOpacity>
 
            </View>
             
