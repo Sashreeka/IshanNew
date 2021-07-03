@@ -21,7 +21,7 @@ import { StyleSheet,
   import { FontAwesome } from '@expo/vector-icons';
   import { Feather } from '@expo/vector-icons';
 
-export default function SigninScreen() {
+export default function SigninScreen({navigation}) {
 
   const [data,setData]=useState({
     email:'',
@@ -155,7 +155,7 @@ export default function SigninScreen() {
                     </LinearGradient>
 
                     <TouchableOpacity
-                    onPress={()=>NavigationPreloadManager.navigate('SignupScreen')}
+                    onPress={() => navigation.navigate('SignupScreen')}
                     style={[styles.signIn,{
                       borderColor:'#009387',
                       borderWidth:1,
