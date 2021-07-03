@@ -7,17 +7,28 @@ import { StyleSheet,
     TouchableOpacity,
     Alert,
     Modal,
-    Button 
+    Button,
+    Dimensions, 
   } from 'react-native';
+
+  import * as Animatable from 'react-native-animatable';
+
+  import { LinearGradient } from 'expo-linear-gradient';
+  
+  import { MaterialIcons } from '@expo/vector-icons';
+  import { FontAwesome } from '@expo/vector-icons';
+  import { Feather } from '@expo/vector-icons';
 
 export default function SigninScreen() {
     return (
         <View style={styles.container}>
-            <Text>Signin Screen</Text>
-            <Button 
-                title="Click Here"
-                onPress={()=>alert('Button Clicked')}
-            />
+          <View style={styles.header}>
+              <Text>header</Text>
+          </View>
+          <View style={styles.footer}>
+              <Text>footer</Text>
+          </View>
+            
             
         </View>
     )
