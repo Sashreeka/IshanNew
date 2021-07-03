@@ -130,8 +130,41 @@ export default function SigninScreen() {
                   />
                 }
                 </TouchableOpacity>
+
+                
                
               </View>
+
+
+              <View style={styles.button}>
+                    <LinearGradient
+                    colors={['#08d4c4','#01ab9d']}
+                    style={styles.signIn}
+                    >
+                    <Text
+                    style={[styles.textSign,{
+                      color:'#fff'
+                    }]}
+                    >Sign In</Text>
+
+
+                    </LinearGradient>
+
+                    <TouchableOpacity
+                    onPress={()=>NavigationPreloadManager.navigate('SignupScreen')}
+                    style={[styles.signIn,{
+                      borderColor:'#009387',
+                      borderWidth:1,
+                      marginTop:15,
+
+                    }]}
+                    >
+                      <Text style={[styles.textSign,{
+                        color:'#009387'
+                      }]}>Sign Up</Text>
+                    </TouchableOpacity>
+
+                </View>
           </View>
             
             

@@ -10,7 +10,7 @@ import { StyleSheet,
     Button 
   } from 'react-native';
 
-export default function SignupScreen() {
+export default function SignupScreen({navigation}) {
     return (
         <View style={styles.container}>
             <Text>Signup Screen</Text>
