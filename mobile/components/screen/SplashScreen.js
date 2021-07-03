@@ -17,7 +17,7 @@ import { StyleSheet,
   import { LinearGradient } from 'expo-linear-gradient';
   
   import { MaterialIcons } from '@expo/vector-icons';
-export default function SplashScreen() {
+export default function SplashScreen({navigation}) {
     return (
         <View style={styles.container}>
            <View style={styles.header}>
@@ -31,11 +31,12 @@ export default function SplashScreen() {
 
            </View>
 
-           <Animatable.View style={styles.footer}>
+           <Animatable.View style={styles.footer}
+           animation="fadeInUpBig">
             <Text style={styles.title}>Stay connected with Shashreeka</Text>
             <Text style={styles.text}>Sign in with account</Text>
             <View style={styles.button}>
-            <TouchableOpacity onPress={alert('click')}>
+            <TouchableOpacity onPress={()=>navigation.navigate('SigninScreen')}>
               <LinearGradient
               colors={['#08d4c4,#01ab9d']}
               style={styles.signIn}>
