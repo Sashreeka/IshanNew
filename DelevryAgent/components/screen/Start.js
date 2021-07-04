@@ -17,23 +17,27 @@ import { StyleSheet,
   import { LinearGradient } from 'expo-linear-gradient';
   
   import { MaterialIcons } from '@expo/vector-icons';
-export default function SplashScreen({navigation}) {
+  
+export default function Start({navigation}) {
     return (
         <View style={styles.container}>
+          
            <View style={styles.header}>
            <Animatable.Image
            animation="bounceIn"
            duration={2000}
              source={require('../../assets/logo.png')}
              style={styles.logo}
-             resizeMode="stretch"
+             resizeMode='stretch'
            />
+           
 
            </View>
+           
 
            <Animatable.View style={styles.footer}
            animation="fadeInUpBig">
-            <Text style={styles.title}>Stay connected with Shashreeka</Text>
+            <Text style={styles.title}>Stay connected with සශ්‍රීක</Text>
             <Text style={styles.text}>Sign in with account</Text>
             <View style={styles.button}>
             <TouchableOpacity onPress={()=>navigation.navigate('SigninScreen')}>
