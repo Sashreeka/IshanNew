@@ -7,12 +7,16 @@ import { StyleSheet,
     TouchableOpacity,
     Alert,
     Modal,
-    Button 
+    Button ,
+    StatusBar
   } from 'react-native';
+  import Header from './Header';
 
 export default function ProfileScreen() {
     return (
         <View style={styles.container}>
+         <StatusBar backgroundColor="#444"/>
+        <Header/>
             <Text>Profile Screen</Text>
             <Button 
                 title="Click Here"
@@ -27,8 +31,8 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
+      // alignItems: 'center',
+      // justifyContent: 'center',
     },
   
    
