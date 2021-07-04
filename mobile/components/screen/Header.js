@@ -31,7 +31,7 @@ const styles=StyleSheet.create({
 
         width:"100%",
         height:50,
-        backgroundColor:'#7fffd4',
+        backgroundColor:'#00FA9A',
         flexDirection:'row',
     },
     image:{
