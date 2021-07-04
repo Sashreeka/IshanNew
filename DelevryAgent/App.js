@@ -6,12 +6,12 @@ import Start from './components/screen/Start';
 export default function App() {
   return (
     <View style={styles.container}>
+   
       <Start/>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Text>Open up App.js to start working on your app!</Text>
+
       <StatusBar style="auto" />
+      
+      
     </View>
   );
 }
