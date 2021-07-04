@@ -35,9 +35,13 @@ import { StyleSheet,
                        <View style={styles.userInfoSection}>
                             <View style={{flexDirection:'row',marginTop:15}}>
                                 <Avatar.Image
-                                    source={{
-                                        uri:'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-                                    }}
+                                     source={
+                                         require('../../assets/ishan.png')
+                                      //  {
+                                    //     uri:'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+                                    // }
+                                    
+                                    }
                                     size={50}
                                 />
                                 <View style={{marginLeft:15,flexDirection:'column'}}>
