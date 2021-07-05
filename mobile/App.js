@@ -31,14 +31,14 @@ export default function App() {
 
   return (
     <NavigationContainer>
-    {/* <RootStackScreen/> */}
+    <RootStackScreen/>
 
-    <Drawer.Navigator drawerContent={props => <DrawerContent {...props}/>}>
+    {/* <Drawer.Navigator drawerContent={props => <DrawerContent {...props}/>}>
         <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
         <Drawer.Screen name="SupportScreen" component={SupportScreen} />
         <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
         <Drawer.Screen name="BookmarkScreen" component={BookmarkScreen}/>
-    </Drawer.Navigator>
+    </Drawer.Navigator> */}
 
      
 
