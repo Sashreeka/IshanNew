@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 //import "./component/Style/style.css";
 import axios from 'axios';
 import regImage from "./assets/reg.png";
+import Register from './component/Farmer/Register/Register';
 
 export default function App() {
 
@@ -23,7 +24,7 @@ export default function App() {
     <div className="container mt-3">
        <div className="row">
        <div className="col-md-5">
-        SignUp
+        <Register/>
 
        </div>
        <div className="col-md-7">
