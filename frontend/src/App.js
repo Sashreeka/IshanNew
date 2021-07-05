@@ -10,7 +10,7 @@ export default function App() {
 
   const submitRegister= () =>{
     alert(name+" "+telephone)
-    axios.post("http://localhost:3001/api/regiter",{
+    axios.post("http://localhost:3001/api/register",{
       name:name,
       telephone:telephone,
       email:email}).then(()=>{

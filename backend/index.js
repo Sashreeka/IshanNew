@@ -2,6 +2,7 @@ const express=require('express');
 const app=express();
 ///
 const bodyParser=require('body-parser');
+const cors=require('cors');
 ///
 const mysql=require('mysql');
 
@@ -13,7 +14,10 @@ const db=mysql.createPool({
 });
 
 ///
+app.use(cors())
+app.use(express.json())
 app.use(bodyParser.urlencoded({extended: true}))
+
 ///
 
 
@@ -25,10 +29,10 @@ app.post('/api/register',(req,res)=>{
     const email=req.body.email
 
     const sqlInsert="INSERT INTO farmer(name,telephone,email) VALUES(?,?,?);";
-    db.query(sqlInsert,[name,telephone,email],(err,res)=>{
+    db.query(sqlInsert,[name,telephone,email],(err,result)=>{
 
        // res.send('hello world1');
-       console.log(res)
+       console.log(result.data)
     })
 
    
