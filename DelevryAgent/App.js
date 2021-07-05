@@ -17,10 +17,7 @@ export default function App() {
       telephone:telephone,
       email:email
 
-    }).then(()=>{
-     
-      console.log('success');
-    })
+    });
   }
   return (
 
