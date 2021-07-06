@@ -10,6 +10,7 @@ import SignupScreen from './SignupScreen';
 const RootStack=createStackNavigator();
 export default function RootStackScreen({navigation}) {
     return (
+        // header none means didn't display the header bar
         <RootStack.Navigator headerMode="none">
             <RootStack.Screen name="SplashScreen" component={SplashScreen}/>
             <RootStack.Screen name="SigninScreen" component={SigninScreen}/>
