@@ -37,6 +37,9 @@ export default function Register() {
 
         }}
         validationSchema={validate}
+        onSubmit={values =>{
+            console.log(values);
+        }}
         >
            {
                formik =>(

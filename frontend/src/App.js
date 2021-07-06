@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 //import "./component/Style/style.css";
 import axios from 'axios';
-import regImage from "./assets/reg.png";
+import regImage from "./assets/a.png";
 import Register from './component/Farmer/Register/Register';
 
 export default function App() {
@@ -27,7 +27,7 @@ export default function App() {
         <Register/>
 
        </div>
-       <div className="col-md-7">
+       <div className="col-md-7 my-auto">
         <img
         className="img-fluid w-100"
           src={regImage}

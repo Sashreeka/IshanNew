@@ -1,4 +1,4 @@
-.App{
+/* .App{
     text-align: center;
 }
 
@@ -13,4 +13,21 @@
     height: 60px;
     margin: 10px;
     font-size: 25px;
+} */
+
+body{
+    font-family: 'Roboto',sans-serif;
+}
+
+label{
+    font-size: .7rem;
+}
+input.form-control, input.form-control:focus{
+    background: #f0f0ff;
+}
+.error{
+    position: absolute;
+    color: red;
+    font-style: 0.5rem;
+    font-size: 12px;
 }
