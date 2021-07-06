@@ -1,72 +1,90 @@
-import { StatusBar } from 'expo-status-bar';
-import React,{useState} from 'react';
-import { StyleSheet, Text, View,TextInput,Button } from 'react-native';
-import Start from './components/screen/Start';
-import axios from 'axios';
+// import { StatusBar } from 'expo-status-bar';
+// import React,{useState} from 'react';
+// import { StyleSheet, Text, View,TextInput,Button } from 'react-native';
+// import Start from './components/screen/Start';
+// import axios from 'axios';
 
 
-export default function App() {
-  const [name,setName]=useState('');
-  const [telephone,setTelephone]=useState('');
-  const [email,setEmail]=useState('');
+// export default function App() {
+//   const [name,setName]=useState('');
+//   const [telephone,setTelephone]=useState('');
+//   const [email,setEmail]=useState('');
 
 
-  const submitRegister = ()=>{
-    axios.post("http://192.168.1.12:3001/api/register",{
-      name:name,
-      telephone:telephone,
-      email:email
+//   const submitRegister = ()=>{
+//     axios.post("http://192.168.1.12:3001/api/register",{
+//       name:name,
+//       telephone:telephone,
+//       email:email
 
-    });
-  }
-  return (
+//     });
+//   }
+//   return (
 
     
-    <View style={styles.container}>
+//     <View style={styles.container}>
 
-    <Text>name</Text>
-    <TextInput
-      onChangeText={(e)=>{
-        setName(e);
-      }}
-    />
+//     <Text>name</Text>
+//     <TextInput
+//       onChangeText={(e)=>{
+//         setName(e);
+//       }}
+//     />
 
-<Text>telephone</Text>
-    <TextInput
-      onChangeText={(e)=>{
-        setTelephone(e);
-      }}
-    />
+// <Text>telephone</Text>
+//     <TextInput
+//       onChangeText={(e)=>{
+//         setTelephone(e);
+//       }}
+//     />
 
-<Text>Email</Text>
-    <TextInput
-      onChangeText={(e)=>{
-        setEmail(e);
-      }}
-    />
+// <Text>Email</Text>
+//     <TextInput
+//       onChangeText={(e)=>{
+//         setEmail(e);
+//       }}
+//     />
 
-    <Button
-      title="Submit"
-      onPress={submitRegister}
-    />
+//     <Button
+//       title="Submit"
+//       onPress={submitRegister}
+//     />
    
-      {/* <Start/> */}
+//       {/* <Start/> */}
 
 
 
 
-      <StatusBar style="auto" />
+//       <StatusBar style="auto" />
       
       
-    </View>
-  );
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#fff',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+// });
+
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import {
+  View,
+  Text,
+  StyleSheet
+} from 'react-native';
+import LoginStack from './routes/LoginStack';
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <LoginStack/>
+      
+    </NavigationContainer>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

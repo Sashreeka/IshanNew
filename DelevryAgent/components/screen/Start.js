@@ -40,7 +40,7 @@ export default function Start({navigation}) {
             <Text style={styles.title}>Stay connected with සශ්‍රීක</Text>
             <Text style={styles.text}>Sign in with account</Text>
             <View style={styles.button}>
-            <TouchableOpacity onPress={()=>navigation.navigate('SigninScreen')}>
+            <TouchableOpacity onPress={()=>navigation.navigate('SignIn')}>
               <LinearGradient
               colors={['#08d4c4,#01ab9d']}
               style={styles.signIn}>
