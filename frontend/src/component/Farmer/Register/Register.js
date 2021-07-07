@@ -2,6 +2,7 @@ import React from 'react';
 import {Formik,Form} from 'formik';
 import TextField from './TextField';
 import * as Yup from 'yup';
+import axios from 'axios';
 
 export default function Register() {
 
@@ -38,7 +39,16 @@ export default function Register() {
         }}
         validationSchema={validate}
         onSubmit={values =>{
-            console.log(values);
+            axios.post("http://localhost:3001/api/register",{
+                name: values.name,
+                telephone:values.telephone,
+                email:values.email,
+                password: values.password,
+                }
+               
+                ).then(()=>{
+                    alert('successfully insert');
+      })
         }}
         >
            {

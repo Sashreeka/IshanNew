@@ -6,19 +6,19 @@ import Register from './component/Farmer/Register/Register';
 
 export default function App() {
 
-  const [name,setName]=useState("");
-  const [telephone,setTelephone]=useState("");
-  const [email,setEmail]=useState("");
+  // const [name,setName]=useState("");
+  // const [telephone,setTelephone]=useState("");
+  // const [email,setEmail]=useState("");
 
-  const submitRegister= () =>{
-    alert(name+" "+telephone)
-    axios.post("http://localhost:3001/api/register",{
-      name:name,
-      telephone:telephone,
-      email:email}).then(()=>{
-        alert('successfully insert');
-      })
-  }
+  // const submitRegister= () =>{
+  //   alert(name+" "+telephone)
+  //   axios.post("http://localhost:3001/api/register",{
+  //     name:name,
+  //     telephone:telephone,
+  //     email:email}).then(()=>{
+  //       alert('successfully insert');
+  //     })
+  // }
 
   return (
     <div className="container mt-3">
@@ -35,7 +35,7 @@ export default function App() {
         />
 
        </div>
-        <div className="form">
+        {/* <div className="form">
         <label>Enter Name</label>
         <input 
         type="text" 
@@ -64,14 +64,17 @@ export default function App() {
         onChange={(e)=>{
           setEmail(e.target.value);
         }}  
-        />
+        /> */}
 
-        <button 
+        
+
+
+        {/* </div> */}
+        {/* <button 
         onClick={submitRegister}
-        >Submit</button>
+        >Submit</button> */}
 
-
-        </div>
+        <h1>Login</h1>
       </div>  
       
     </div>

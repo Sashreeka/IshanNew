@@ -27,9 +27,10 @@ app.post('/api/register',(req,res)=>{
     const name=req.body.name
     const telephone=req.body.telephone
     const email=req.body.email
+    const password=req.body.password
 
-    const sqlInsert="INSERT INTO farmer(name,telephone,email) VALUES(?,?,?);";
-    db.query(sqlInsert,[name,telephone,email],(err,result)=>{
+    const sqlInsert="INSERT INTO farmer(name,telephone,email,password) VALUES(?,?,?,?);";
+    db.query(sqlInsert,[name,telephone,email,password],(err,result)=>{
 
        // res.send('hello world1');
        console.log(result.data)
