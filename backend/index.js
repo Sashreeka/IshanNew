@@ -39,6 +39,24 @@ app.post('/api/register',(req,res)=>{
    
 })
 
+app.get('/api/login',(req,res)=>{
+    const telephone=req.body.telephone
+    const password=req.body.password
+    const sqlSelect="SELECT * FROM farmer WHERE telephone=? AND password=? ";
+    db.query(sqlSelect,[telephone,password],(err,result)=>{
+
+        if(err){
+            res.send({err:err})
+        }
+        if(result){
+            res.send(result)
+        }else{
+            
+        }
+
+    })
+})
+
 app.listen(3001,()=>{
     console.log("running port 3001");
 })

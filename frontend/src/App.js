@@ -6,6 +6,9 @@ import Register from './component/Farmer/Register/Register';
 
 export default function App() {
 
+  const [telephone,setTelephone]=useState('')
+  const [password,setPassword]=useState('')
+
   // const [name,setName]=useState("");
   // const [telephone,setTelephone]=useState("");
   // const [email,setEmail]=useState("");
@@ -19,6 +22,17 @@ export default function App() {
   //       alert('successfully insert');
   //     })
   // }
+
+  const loginView =() =>{
+    axios.get('http://localhost:3001/api/login',{
+      telephone :telephone,
+      password:password
+    }).then(
+      ()=>{
+        alert('successfully login');
+      }
+    )
+  }
 
   return (
     <div className="container mt-3">
@@ -75,6 +89,26 @@ export default function App() {
         >Submit</button> */}
 
         <h1>Login</h1>
+
+        <input
+          placeholder="Enter telephone"
+          name="telephone"
+          type='text'
+          onChange={(e)=>{
+            setTelephone(e.target.value)
+          }}
+        />
+        <input
+          placeholder="Enter password"
+          name="password"
+          type="text"
+          onChange={(e)=>{
+            setPassword(e.target.value)
+          }}
+        />
+        <button
+        onClick={loginView}
+        >Login</button>
       </div>  
       
     </div>
