@@ -46,8 +46,8 @@ export default function Register() {
                 password: values.password,
                 }
                
-                ).then(()=>{
-                    alert('successfully insert');
+                ).then((response)=>{
+                    alert(response.data.message);
       })
         }}
         >

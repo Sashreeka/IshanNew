@@ -27,8 +27,8 @@ export default function App() {
 
   const loginView =() =>{
     axios.get('http://localhost:3001/api/login',{
-      telephone :telephone,
-      password:password
+      telephone : telephone,
+      password: password
     }).then(
       (response)=>{
        if(response.data.message)

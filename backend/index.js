@@ -6,6 +6,9 @@ const cors=require('cors');
 ///
 const mysql=require('mysql');
 
+const bcrypt=require('bcrypt');
+const saltRounds=10;
+
 const db=mysql.createPool({
     host: "localhost",
     user: "root",
@@ -29,12 +32,21 @@ app.post('/api/register',(req,res)=>{
     const email=req.body.email
     const password=req.body.password
 
-    const sqlInsert="INSERT INTO farmer(name,telephone,email,password) VALUES(?,?,?,?);";
-    db.query(sqlInsert,[name,telephone,email,password],(err,result)=>{
+    bcrypt.hash(password,saltRounds, (err,hash)=>{
 
-       // res.send('hello world1');
-       console.log(result.data)
+        const sqlInsert="INSERT INTO farmer(name,telephone,email,password) VALUES(?,?,?,?);";
+        db.query(sqlInsert,[name,telephone,email,hash],(err,result)=>{
+    
+           if(result)
+           {
+            res.send({message:'successful'});
+           }
+          // console.log(result.data)
+        })
+        
     })
+
+   
 
    
 })
