@@ -9,6 +9,8 @@ export default function App() {
   const [telephone,setTelephone]=useState('')
   const [password,setPassword]=useState('')
 
+  const [loginStatus,setLoginStatus]=useState('');
+
   // const [name,setName]=useState("");
   // const [telephone,setTelephone]=useState("");
   // const [email,setEmail]=useState("");
@@ -28,8 +30,14 @@ export default function App() {
       telephone :telephone,
       password:password
     }).then(
-      ()=>{
-        alert('successfully login');
+      (response)=>{
+       if(response.data.message)
+       {
+         setLoginStatus(response.data.message);
+       }else{
+        setLoginStatus(response.data);
+       }
+       
       }
     )
   }
@@ -110,6 +118,8 @@ export default function App() {
         onClick={loginView}
         >Login</button>
       </div>  
+
+      <h1>{loginStatus}</h1>
       
     </div>
   )

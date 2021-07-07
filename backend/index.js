@@ -40,18 +40,18 @@ app.post('/api/register',(req,res)=>{
 })
 
 app.get('/api/login',(req,res)=>{
-    const telephone=req.body.telephone
-    const password=req.body.password
+    const telephone=req.body.telephone;
+    const password=req.body.password;
     const sqlSelect="SELECT * FROM farmer WHERE telephone=? AND password=? ";
     db.query(sqlSelect,[telephone,password],(err,result)=>{
 
         if(err){
-            res.send({err:err})
+            res.send({err: err})
         }
-        if(result){
-            res.send(result)
+        if(result.length > 0){
+            res.send(result);
         }else{
-            
+            res.send({message:"Wrong username/Password combination"});
         }
 
     })
