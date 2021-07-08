@@ -26,7 +26,7 @@ export default function App() {
   // }
 
   const loginView =() =>{
-    axios.get('http://localhost:3001/api/login',{
+    axios.post('http://localhost:3001/api/login',{
       telephone : telephone,
       password: password
     }).then(
@@ -34,8 +34,10 @@ export default function App() {
        if(response.data.message)
        {
          setLoginStatus(response.data.message);
-       }else{
-        setLoginStatus(response.data);
+       }
+       else{
+        setLoginStatus(response.data[0].telephone);
+       // response.sendFile(__dirname,'./component/Farmer/Home')
        }
        
       }
@@ -109,13 +111,15 @@ export default function App() {
         <input
           placeholder="Enter password"
           name="password"
-          type="text"
+          type="password"
+          style={{marginTop:30}}
           onChange={(e)=>{
             setPassword(e.target.value)
           }}
         />
         <button
         onClick={loginView}
+        style={{marginTop:30}}
         >Login</button>
       </div>  
 

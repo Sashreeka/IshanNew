@@ -7,6 +7,7 @@ const cors=require('cors');
 const mysql=require('mysql');
 
 const bcrypt=require('bcrypt');
+const { response } = require('express');
 const saltRounds=10;
 
 const db=mysql.createPool({
@@ -33,6 +34,10 @@ app.post('/api/register',(req,res)=>{
     const password=req.body.password
 
     bcrypt.hash(password,saltRounds, (err,hash)=>{
+        if(err)
+        {
+            console.log(err);
+        }
 
         const sqlInsert="INSERT INTO farmer(name,telephone,email,password) VALUES(?,?,?,?);";
         db.query(sqlInsert,[name,telephone,email,hash],(err,result)=>{
@@ -51,19 +56,32 @@ app.post('/api/register',(req,res)=>{
    
 })
 
-app.get('/api/login',(req,res)=>{
+app.post('/api/login',(req,res)=>{
     const telephone=req.body.telephone;
     const password=req.body.password;
-    const sqlSelect="SELECT * FROM farmer WHERE telephone=? AND password=? ";
-    db.query(sqlSelect,[telephone,password],(err,result)=>{
+    const sqlSelect="SELECT * FROM farmer WHERE telephone=?";
+    db.query(sqlSelect,telephone,
+        (err,result) => {
 
         if(err){
-            res.send({err: err})
+            res.send({err: err});
         }
+
         if(result.length > 0){
-            res.send(result);
+           // res.send(result);
+          // res.send(result);
+           bcrypt.compare(password, result[0].password, (error,response)=>{
+               if(response){
+                 res.send(result);
+                  
+               }else{
+                res.send({message:"Wrong username/Password combination"});
+               }
+           })
+         
         }else{
-            res.send({message:"Wrong username/Password combination"});
+            
+            res.send({message:"User doesn't exist"});
         }
 
     })
