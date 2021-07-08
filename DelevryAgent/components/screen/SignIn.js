@@ -1,20 +1,29 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {
     View,
     Text,
     StyleSheet,
     Button,
-    TouchableOpacity
+    TouchableOpacity,
+    TextInput
 
 } from 'react-native';
 
 export default function SignIn({navigation}) {
+
+    const [name,setName]=useState('');
     return (
         <View style={styles.container}>
+        <TextInput placeholder="Enter name"
+            type="text"
+            onChangeText={(e)=>{setName(e);
+
+            }}
+        />
        <Button
            title="Login Home"
            onPress={()=>{
-               navigation.navigate("Home");
+               navigation.navigate("Home",{name});
            }}
        />
        <TouchableOpacity onPress={()=>navigation.goBack()}>

@@ -18,9 +18,12 @@ const About = ()=>{
     )
 }
 const Stack=createStackNavigator();
-export default function Home({navigation}) {
+export default function Home({route,navigation}) {
+
+    const {name}=route.params;
     return (
         <View style={styles.container}>
+        <Text>Welcome {name}</Text>
 
         <Button
                 title="Login"
