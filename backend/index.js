@@ -1,4 +1,5 @@
 const express=require('express');
+const jwt=require('jsonwebtoken');
 const app=express();
 ///
 const bodyParser=require('body-parser');
@@ -72,7 +73,18 @@ app.post('/api/login',(req,res)=>{
           // res.send(result);
            bcrypt.compare(password, result[0].password, (error,response)=>{
                if(response){
-                 res.send(result);
+                // res.send(result);
+                 console.log(result[0].telephone);
+
+                 const payload={
+                     "telephone":result[0].telephone,
+                 }
+
+                 jwt.sign(payload,'secret',{expiresIn:'10h'},(err,token)=>{
+                    res.json({
+                        token: token,
+                    })
+                 })
                   
                }else{
                 res.send({message:"Wrong username/Password combination"});

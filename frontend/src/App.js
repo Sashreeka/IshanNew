@@ -31,14 +31,16 @@ export default function App() {
       password: password
     }).then(
       (response)=>{
-       if(response.data.message)
-       {
-         setLoginStatus(response.data.message);
-       }
-       else{
-        setLoginStatus(response.data[0].telephone);
-       // response.sendFile(__dirname,'./component/Farmer/Home')
-       }
+
+        console.log(response.data.token);
+      //  if(response.data.message)
+      //  {
+      //    setLoginStatus(response.data.message);
+      //  }
+      //  else{
+      //   setLoginStatus(response.data[0].telephone);
+      //  // response.sendFile(__dirname,'./component/Farmer/Home')
+      //  }
        
       }
     )
@@ -123,7 +125,7 @@ export default function App() {
         >Login</button>
       </div>  
 
-      <h1>{loginStatus}</h1>
+      {/* <h1>{loginStatus}</h1> */}
       
     </div>
   )
