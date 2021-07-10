@@ -70,15 +70,20 @@ export default function App() {
 
     <AuthContext.Provider value={authContext}>
         <NavigationContainer>
-        <RootStackScreen/>
 
-        {/* <Drawer.Navigator drawerContent={props => <DrawerContent {...props}/>}>
+        { userToken !== null ?(
+       
+
+        <Drawer.Navigator drawerContent={props => <DrawerContent {...props}/>}>
             <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
             <Drawer.Screen name="SupportScreen" component={SupportScreen} />
             <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
             <Drawer.Screen name="BookmarkScreen" component={BookmarkScreen}/>
-        </Drawer.Navigator> */}
+        </Drawer.Navigator>)
+        :
 
+        <RootStackScreen/>
+        }
         
 
         </NavigationContainer>

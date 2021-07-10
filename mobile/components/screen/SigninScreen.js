@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
 import { StyleSheet, 
     Text, 
     View, 
@@ -31,6 +31,7 @@ export default function SigninScreen({navigation}) {
     secureTextEntry: true
   });
 
+  const {signIn}=useContext(AuthContext);
 
   const textInputChange= (val)=>{
     if(val.length!==0)
@@ -140,8 +141,13 @@ export default function SigninScreen({navigation}) {
                
               </View>
 
+              
+
 
               <View style={styles.button}>
+                 <TouchableOpacity
+                 style={styles.signIn}
+                 onPress={()=>{signIn()}}>
                     <LinearGradient
                     colors={['#08d4c4','#01ab9d']}
                     style={styles.signIn}
@@ -154,6 +160,7 @@ export default function SigninScreen({navigation}) {
 
 
                     </LinearGradient>
+                  </TouchableOpacity>   
 
                     <TouchableOpacity
                     onPress={() => navigation.navigate('SignupScreen')}
