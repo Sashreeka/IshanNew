@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect, useContext} from 'react';
 import { StyleSheet, 
    
     View, 
@@ -18,12 +18,15 @@ import { StyleSheet,
     TouchableRipple,
     Switch 
   } from 'react-native-paper';
+
+  import { AuthContext } from '../context';
   import  Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
   export function DrawerContent(props)
   {
       const [isDarkTheme,setDarkTheme]=useState(false);
 
+      const {signOut}=useContext(AuthContext);
       const toggleTheme = ()=>{
           setDarkTheme(!isDarkTheme);
       }
@@ -185,7 +188,7 @@ import { StyleSheet,
                     }
                     label="Sign Out"
                     onPress={()=>{
-
+                        signOut()
                     }}
 
                 />
