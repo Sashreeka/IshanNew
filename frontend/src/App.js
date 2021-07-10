@@ -33,6 +33,11 @@ export default function App() {
       (response)=>{
 
         console.log(response.data.token);
+
+        localStorage.setItem('login',JSON.stringify({
+          login:true,
+          token: response.data.token
+        }))
       //  if(response.data.message)
       //  {
       //    setLoginStatus(response.data.message);
@@ -43,7 +48,9 @@ export default function App() {
       //  }
        
       }
-    )
+    ).catch(error=>{
+      console.log(error);
+    })
   }
 
   return (

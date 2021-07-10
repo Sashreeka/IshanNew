@@ -11,7 +11,8 @@ import { StyleSheet,
         TouchableOpacity,
         Alert,
         Modal,
-        Button 
+        Button, 
+        ActivityIndicator
       } from 'react-native';
 
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -28,7 +29,27 @@ const Drawer = createDrawerNavigator();
 
 
 export default function App() {
+  const [isLoading,setIsLoading]=useState(true);
+  const [userToken,setUserToken]=useState(null);
 
+
+  useEffect(()=>{
+
+    setTimeout(()=>{
+      setIsLoading(false);
+      
+
+    },1000);
+  },[])
+
+  if(isLoading){
+    return (
+      <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+          <ActivityIndicator size='large'/>
+
+      </View>
+    );
+  }
   return (
     <NavigationContainer>
     {/* <RootStackScreen/> */}
