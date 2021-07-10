@@ -21,6 +21,7 @@ import { StyleSheet,
   import { FontAwesome } from '@expo/vector-icons';
   import { Feather } from '@expo/vector-icons';
 
+  import { AuthContext } from '../context';
 export default function SignupScreen({navigation}) {
 
   const [data,setData]=useState({

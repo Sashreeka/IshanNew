@@ -22,6 +22,7 @@ import { DrawerContent } from './components/screen/DrawnContent';
 import SupportScreen from './components/screen/SupportScreen';
 import SettingsScreen from './components/screen/SettingsScreen';
 import BookmarkScreen from './components/screen/BookmarkScreen';
+import { AuthContext } from './components/context';
 
 import RootStackScreen from './components/screen/RootStackScreen';
 const Drawer = createDrawerNavigator();
@@ -66,19 +67,23 @@ export default function App() {
     );
   }
   return (
-    <NavigationContainer>
-    {/* <RootStackScreen/> */}
 
-    <Drawer.Navigator drawerContent={props => <DrawerContent {...props}/>}>
-        <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
-        <Drawer.Screen name="SupportScreen" component={SupportScreen} />
-        <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
-        <Drawer.Screen name="BookmarkScreen" component={BookmarkScreen}/>
-    </Drawer.Navigator>
+    <AuthContext.Provider value={authContext}>
+        <NavigationContainer>
+        <RootStackScreen/>
 
-     
+        {/* <Drawer.Navigator drawerContent={props => <DrawerContent {...props}/>}>
+            <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
+            <Drawer.Screen name="SupportScreen" component={SupportScreen} />
+            <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
+            <Drawer.Screen name="BookmarkScreen" component={BookmarkScreen}/>
+        </Drawer.Navigator> */}
 
-    </NavigationContainer>
+        
+
+        </NavigationContainer>
+
+    </AuthContext.Provider>
 
   
 
