@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useMemo} from 'react';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -32,6 +32,21 @@ export default function App() {
   const [isLoading,setIsLoading]=useState(true);
   const [userToken,setUserToken]=useState(null);
 
+  const authContext=useMemo(()=>({
+    signIn: ()=>{
+      setUserToken('set');
+      setIsLoading(false);
+    },
+    signOut: ()=>{
+      setUserToken(null);
+      setIsLoading(false);
+    },
+    signUp: ()=>{
+      setUserToken('set');
+      setIsLoading(false);
+    },
+
+  }))
 
   useEffect(()=>{
 
