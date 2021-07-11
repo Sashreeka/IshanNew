@@ -1,4 +1,4 @@
-import React,{useState,useEffect,useMemo} from 'react';
+import React,{useState,useEffect,useMemo,useReducer} from 'react';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -30,35 +30,92 @@ const Drawer = createDrawerNavigator();
 
 
 export default function App() {
-  const [isLoading,setIsLoading]=useState(true);
-  const [userToken,setUserToken]=useState(null);
+  // const [isLoading,setIsLoading]=useState(true);
+  // const [userToken,setUserToken]=useState(null);
+
+  const initialLoginState={
+
+    isLoading: true,
+    userName: null,
+    userToken: null,
+  };
+  const loginReducer= (prevState,action)=>{
+    switch(action.type){
+      case 'RETRIEVE_TOKEN':
+        return{
+
+          ...prevState,
+          userToken: action.token,
+          isLoading :false,
+        };
+      case 'LOGIN':
+          return{
+            ...prevState,
+            userName: action.id,
+            userToken: action.token,
+            isLoading :false,
+            
+          }; 
+      case 'LOGOUT':
+            return{
+              ...prevState,
+
+           userName: null,
+            userToken: null,
+            isLoading :false,
+              
+            }; 
+      case 'REGISTER':
+              return{
+                ...prevState,
+            userName: action.id,
+            userToken: action.token,
+            isLoading :false,
+              };         
+    }
+  }
+
+  const [loginState,dispatch]=useReducer(loginReducer,initialLoginState)
 
   const authContext=useMemo(()=>({
-    signIn: ()=>{
-      setUserToken('set');
-      setIsLoading(false);
+    signIn: (userName,password)=>{
+      // setUserToken('set');
+      // setIsLoading(false);
+      //
+      let userToken;
+      userToken=null;
+      if(userName == 'user' && password == 'pass'){
+        userToken='ishan'
+        console.log('user token',userToken)
+      }
+      dispatch({type: 'LOGIN', id: userName, token: userToken})
     },
     signOut: ()=>{
-      setUserToken(null);
-      setIsLoading(false);
+      // setUserToken(null);
+      // setIsLoading(false);
+      dispatch({type:'LOGOUT'})
     },
     signUp: ()=>{
-      setUserToken('set');
-      setIsLoading(false);
+      // setUserToken('set');
+      // setIsLoading(false);
     },
 
-  }))
+  }),[])
 
   useEffect(()=>{
 
     setTimeout(()=>{
-      setIsLoading(false);
+    //  setIsLoading(false);
+    let userToken;
+    userToken='ishan'
+    console.log('user token',userToken)
+    dispatch({type: 'RETRIEVE_TOKEN',token:'ishan'})
       
 
     },1000);
   },[])
 
-  if(isLoading){
+  if(loginState.isLoading){
     return (
       <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
           <ActivityIndicator size='large'/>
@@ -71,7 +128,7 @@ export default function App() {
     <AuthContext.Provider value={authContext}>
         <NavigationContainer>
 
-        { userToken !== null ?(
+        { loginState.userToken !== null ?(
        
 
         <Drawer.Navigator drawerContent={props => <DrawerContent {...props}/>}>
