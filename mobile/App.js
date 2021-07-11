@@ -24,98 +24,191 @@ import SettingsScreen from './components/screen/SettingsScreen';
 import BookmarkScreen from './components/screen/BookmarkScreen';
 import { AuthContext } from './components/context';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import RootStackScreen from './components/screen/RootStackScreen';
 const Drawer = createDrawerNavigator();
 
 
 
-export default function App() {
-  // const [isLoading,setIsLoading]=useState(true);
-  // const [userToken,setUserToken]=useState(null);
+export default function App({navigation}) {
+ 
 
-  const initialLoginState={
+  // const initialLoginState={
 
-    isLoading: true,
-    userName: null,
-    userToken: null,
-  };
-  const loginReducer= (prevState,action)=>{
-    switch(action.type){
-      case 'RETRIEVE_TOKEN':
-        return{
+  //   isLoading: true,
+  //   username: null,
+  //   userToken: null,
+  // };
+  // const loginReducer= (prevState,action)=>{
+  //   switch(action.type){
+  //     case 'RETRIEVE_TOKEN':
+  //       return{
 
-          ...prevState,
-          userToken: action.token,
-          isLoading :false,
-        };
-      case 'LOGIN':
-          return{
-            ...prevState,
-            userName: action.id,
-            userToken: action.token,
-            isLoading :false,
+  //         ...prevState,
+  //         userToken: action.token,
+  //         isLoading :false,
+  //       };
+  //     case 'LOGIN':
+  //         return{
+  //           ...prevState,
+  //           username: action.id,
+  //           userToken: action.token,
+  //           isLoading :false,
             
-          }; 
-      case 'LOGOUT':
-            return{
-              ...prevState,
+  //         }; 
+  //     case 'LOGOUT':
+  //           return{
+  //             ...prevState,
 
-           userName: null,
-            userToken: null,
-            isLoading :false,
+  //          username: null,
+  //           userToken: null,
+  //           isLoading :false,
               
-            }; 
-      case 'REGISTER':
-              return{
-                ...prevState,
-            userName: action.id,
-            userToken: action.token,
-            isLoading :false,
-              };         
-    }
-  }
+  //           }; 
+  //     case 'REGISTER':
+  //             return{
+  //               ...prevState,
+  //           username: action.id,
+  //           userToken: action.token,
+  //           isLoading :false,
+  //             };         
+  //   }
+  // }
 
-  const [loginState,dispatch]=useReducer(loginReducer,initialLoginState)
+  // const [loginState,dispatch]=useReducer(loginReducer,initialLoginState)
+
+  // const authContext=useMemo(()=>({
+  //   signIn: async(username,password)=>{
+  //     // setUserToken('set');
+  //     // setIsLoading(false);
+      
+  //     let userToken;
+  //     userToken=null;
+  //     if(username =='user' && password =='pass'){
+        
+  //       try{
+  //         userToken='dfgdfg';
+  //         await AsyncStorage.setItem('userToken', userToken);
+  //       }
+  //       catch(e){
+  //         console.log(e);
+  //       }
+  //      // console.log('user token',userToken)
+  //     }
+  //     dispatch({type: 'LOGIN', id: username, token: userToken})
+  //   },
+  //   signOut: async ()=>{
+  //     // setUserToken(null);
+  //     // setIsLoading(false);
+
+  //     try{
+        
+  //       await AsyncStorage.removeItem('userToken');
+  //     }
+  //     catch(e){
+  //       console.log(e);
+  //     }
+
+  //     dispatch({type:'LOGOUT'})
+  //   },
+  //   signUp: ()=>{
+  //     // setUserToken('set');
+  //     // setIsLoading(false);
+  //   },
+
+  // }),[])
+
+  const [isLoading,setIsLoading]=useState(true);
+  const [userToken,setUserToken]=useState(null);
+  //let userToken=null;
 
   const authContext=useMemo(()=>({
-    signIn: (userName,password)=>{
-      // setUserToken('set');
-      // setIsLoading(false);
-      //
-      let userToken;
-      userToken=null;
-      if(userName == 'user' && password == 'pass'){
-        userToken='ishan'
-        console.log('user token',userToken)
+    signIn: async (telephone,password)=>{
+      if(telephone =='119' && password=='pass')
+      {
+        setUserToken('ishan');
+        setIsLoading(false);
+        try{
+          userToken="ishan"
+  
+          await AsyncStorage.setItem('userToken', userToken)
+  
+          //console.log(userToken)
+        }catch(e)
+        {
+          console.log("error",e);
+        }
+       
+
       }
-      dispatch({type: 'LOGIN', id: userName, token: userToken})
+      
+     // console.log(telephone,password);
+    
+
+     
     },
-    signOut: ()=>{
-      // setUserToken(null);
-      // setIsLoading(false);
-      dispatch({type:'LOGOUT'})
+    signOut: async ()=>{
+      setUserToken(null);
+      setIsLoading(false);
+
+      try{
+
+        await AsyncStorage.removeItem('userToken')
+      //  console.log(userToken)
+
+      }catch(e){
+        console.log(e)
+      }
+
+      
+
+      
     },
     signUp: ()=>{
-      // setUserToken('set');
-      // setIsLoading(false);
+      setUserToken('set');
+      setIsLoading(false);
     },
 
   }),[])
 
+
   useEffect(()=>{
 
-    setTimeout(()=>{
-    //  setIsLoading(false);
-    let userToken;
-    userToken='ishan'
-    console.log('user token',userToken)
-    dispatch({type: 'RETRIEVE_TOKEN',token:'ishan'})
-      
+    setTimeout(async()=>{
+
+      const token=await AsyncStorage.getItem('userToken')
+      console.log(token)
+     setIsLoading(false);
+
 
     },1000);
   },[])
 
-  if(loginState.isLoading){
+  // useEffect(()=>{
+
+  //   setTimeout(async()=>{
+  //   //  setIsLoading(false);
+  //   let userToken;
+  //   userToken=null;
+
+
+  //   try{
+  //     userToken=await AsyncStorage.getItem('userToken');
+      
+  //   }
+  //   catch(e){
+  //     console.log(e);
+  //   }
+
+  //   console.log('user token',userToken)
+  //   dispatch({type: 'RETRIEVE_TOKEN', token: userToken})
+      
+
+  //   },1000);
+  // },[])
+
+  if(isLoading){
     return (
       <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
           <ActivityIndicator size='large'/>
@@ -128,7 +221,7 @@ export default function App() {
     <AuthContext.Provider value={authContext}>
         <NavigationContainer>
 
-        { loginState.userToken !== null ?(
+        { userToken !== null ?(
        
 
         <Drawer.Navigator drawerContent={props => <DrawerContent {...props}/>}>

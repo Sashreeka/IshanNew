@@ -25,7 +25,7 @@ import { StyleSheet,
 export default function SigninScreen({navigation}) {
 
   const [data,setData]=useState({
-    email:'',
+    telephone:'',
     password:'',
     check_textInputChange: false,
     secureTextEntry: true
@@ -38,13 +38,13 @@ export default function SigninScreen({navigation}) {
     {
       setData({
         ...data,
-        email:val,
+        telephone:val,
         check_textInputChange:true
       });
     }else{
       setData({
         ...data,
-        email:val,
+        telephone:val,
         check_textInputChange:false
       });
 
@@ -69,9 +69,9 @@ export default function SigninScreen({navigation}) {
     });
   }
 
-  const loginHandle = (username, password)=>{
-    signIn(username,password);
-  }
+  // const loginHandle = (username, password)=>{
+  //   signIn(username,password);
+  // }
 
     return (
         <View style={styles.container}>
@@ -82,7 +82,7 @@ export default function SigninScreen({navigation}) {
           <Animatable.View style={styles.footer}
           animation="fadeInUpBig"
           >
-              <Text style={styles.text_footer}>Email</Text>
+              <Text style={styles.text_footer}>Telephone</Text>
               <View style={styles.action}>
                 <FontAwesome
                   name="user-o"
@@ -90,7 +90,7 @@ export default function SigninScreen({navigation}) {
                   size={20}
                 />
                 <TextInput
-                  placeholder="Your Email"
+                  placeholder="Enter Your Telephone No:"
                   style={styles.textInput}
                   autoCapitalize="none"
                   onChangeText={(val)=>textInputChange(val)}
@@ -151,7 +151,9 @@ export default function SigninScreen({navigation}) {
               <View style={styles.button}>
                  <TouchableOpacity
                  style={styles.signIn}
-                 onPress={()=>{loginHandle(data.username,data.password)}}>
+                //  onPress={()=>{loginHandle(data.username,data.password)}}
+                 onPress={()=>{signIn(data.telephone,data.password)}}
+                 >
                     <LinearGradient
                     colors={['#08d4c4','#01ab9d']}
                     style={styles.signIn}

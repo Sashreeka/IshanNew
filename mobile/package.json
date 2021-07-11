@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@payhere/payhere-mobilesdk-reactnative": "1.0.11",
+    "@react-native-async-storage/async-storage": "^1.15.5",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/bottom-tabs": "^5.11.11",
     "@react-navigation/drawer": "^5.12.5",
