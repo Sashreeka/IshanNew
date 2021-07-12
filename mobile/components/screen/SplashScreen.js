@@ -24,7 +24,7 @@ export default function SplashScreen({navigation}) {
            <Animatable.Image
            animation="bounceIn"
            duration={2000}
-             source={require('../../assets/logo.png')}
+             source={require('../../assets/iconn.png')}
              style={styles.logo}
              resizeMode="stretch"
            />
