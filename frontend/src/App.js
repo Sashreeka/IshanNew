@@ -68,44 +68,7 @@ export default function App() {
         />
 
        </div>
-        {/* <div className="form">
-        <label>Enter Name</label>
-        <input 
-        type="text" 
-        name="name" 
-        placeholder="ishan reshmika"
-        onChange={(e)=>{
-          setName(e.target.value);
-        }}  
-        />
 
-        <label>Enter Telephone</label>
-        <input 
-        type="text" 
-        name="telephone" 
-        placeholder="0768610084" 
-        onChange={(e)=>{
-          setTelephone(e.target.value);  
-        }}
-        />
-
-        <label>Enter Email</label>
-        <input 
-        type="text" 
-        name="email" 
-        placeholder="ishan@gmail.com"
-        onChange={(e)=>{
-          setEmail(e.target.value);
-        }}  
-        /> */}
-
-        
-
-
-        {/* </div> */}
-        {/* <button 
-        onClick={submitRegister}
-        >Submit</button> */}
 
         <h1>Login</h1>
 
