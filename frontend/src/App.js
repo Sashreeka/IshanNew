@@ -11,19 +11,6 @@ export default function App() {
 
   const [loginStatus,setLoginStatus]=useState('');
 
-  // const [name,setName]=useState("");
-  // const [telephone,setTelephone]=useState("");
-  // const [email,setEmail]=useState("");
-
-  // const submitRegister= () =>{
-  //   alert(name+" "+telephone)
-  //   axios.post("http://localhost:3001/api/register",{
-  //     name:name,
-  //     telephone:telephone,
-  //     email:email}).then(()=>{
-  //       alert('successfully insert');
-  //     })
-  // }
 
   const loginView =() =>{
     axios.post('http://localhost:3001/api/login',{
@@ -38,14 +25,7 @@ export default function App() {
           login:true,
           token: response.data.token
         }))
-      //  if(response.data.message)
-      //  {
-      //    setLoginStatus(response.data.message);
-      //  }
-      //  else{
-      //   setLoginStatus(response.data[0].telephone);
-      //  // response.sendFile(__dirname,'./component/Farmer/Home')
-      //  }
+     
        
       }
     ).catch(error=>{
